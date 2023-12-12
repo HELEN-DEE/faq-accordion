@@ -19,7 +19,19 @@ const accordionHeaders = document.querySelectorAll('.accordion-header');
 accordionHeaders.forEach((header) => {
   header.querySelector('button').addEventListener('click', () => {
     const accordionContent = header.nextElementSibling;
+
+    accordionHeaders.forEach((otherHeader) => {
+      if (otherHeader !== header) {
+        otherHeader.nextElementSibling.classList.remove('show');
+        otherHeader.classList.remove('hovered');
+
+        return
+      } 
+    });
+    
     accordionContent.classList.toggle('show');
     header.classList.toggle('hovered')
+
+    
   });
 });
