@@ -1,93 +1,113 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap');
 
 :root {
-    --White: hsl(0, 0%, 100%);
-    --Light-pink: hsl(275, 100%, 97%);
-    --Grayish-purple: hsl(292, 16%, 49%);
-    --Dark-purple: hsl(292, 42%, 14%);
+  --White: hsl(0, 0%, 100%);
+  --Light-pink: hsl(275, 100%, 97%);
+  --Grayish-purple: hsl(292, 16%, 49%);
+  --Dark-purple: hsl(292, 42%, 14%);
 }
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Work Sans', sans-serif;
-    background-color: var(--Light-pink);
-    position: relative;
-    /* font-size: 16px; */
+  font-family: 'Work Sans', sans-serif;
+  background-color: var(--Light-pink);
 }
 
-.bg-top img{
-    width: 100%;
+.bg-top {
+  position: relative;
 }
 
-.faq-container {
-    background-color: var(--White);
-    margin: 0 25%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 2rem;
-    border-radius: 12px;
-    font-size: 14px;
-    position: absolute;
-    top: 170px;
-
-    
-}
-hr {
-    height: 0.5px;
-}
-
-.questions p {
-    /* display: none;*/
-    margin-bottom: 0.5rem;
-}
-.flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 3rem;
-}
-
-
-button {
-    background-color: transparent;
-    border: 0;
-}
-
-.accordion-content {
-    display: none; 
-}
-
-.accordion-header {
-    padding: 0.5rem 0;
-}
-
-.accordion-header:hover  {
-    color: hsl(293, 66%, 61%);
-}
-
-.accordion-header.selected {
-    color: hsl(293, 66%, 61%);
-}
-
-.accordion-header.selected:hover {
-    color: hsl(293, 66%, 61%);
+.bg-top img {
+  width: 100%;
+  height: 15%;
+  z-index: 1;
 }
 
 .logo {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
+.faq-container {
+  background-color: var(--White);
+  margin: 10rem 25%;
+  display: flex;
+  z-index: 10;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  border-radius: 12px;
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+hr {
+  height: 0.5px;
+}
+
+.questions p {
+  /* display: none;*/
+  margin-bottom: 0.5rem;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+}
+
+button {
+  background-color: transparent;
+  border: 0;
+}
+
+.accordion-content {
+  display: none;
+  width: 80%;
+}
+
+.accordion-content.show {
+  display: block;
+}
+
+.accordion-header {
+  padding: 0.5rem 0;
+}
+
+.accordion-header:hover {
+  color: hsl(293, 66%, 61%);
+}
+.accordion-header.hovered {
+  color: initial;
+}
+
+
+
 .attribution {
-    font-size: 14px;
-    text-align: center;
-    /* margin-top: 20rem; */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  font-size: 14px;
+  text-align: center;
 }
 .attribution a {
-    color: hsl(228, 45%, 44%);
+  color: hsl(228, 45%, 44%);
+}
+
+@media screen and (max-width :768px) {
+  .faq-container {
+    margin: 5rem 5%;
+    top: -2%;
+  }
+
+  .accordion-header {
+    padding: 1rem 0;
+  }
+
 }

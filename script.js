@@ -1,42 +1,25 @@
-const accordionHeaders  = document.querySelectorAll('.accordion-header')
-let openAccordion = null
-
-const btnIcons = document.querySelectorAll('.btn-icon')
+const btnIcons = document.querySelectorAll('.btn-icon');
 const plusIconPath = 'assets/images/icon-plus.svg';
 const minusIconPath = 'assets/images/icon-minus.svg';
 
-btnIcons.forEach(function (btnIcon) {
-    btnIcon.addEventListener('click', function () {
-        const currentIconSrc = btnIcon.querySelector('img').getAttribute('src');
+btnIcons.forEach((btnIcon) => {
+  btnIcon.addEventListener('click', () => {
+    const currentIcon = btnIcon.querySelector('img');
+    const currentIconSrc = currentIcon.getAttribute('src');
 
-        if (currentIconSrc === plusIconPath) {
-            btnIcon.querySelector('img').setAttribute('src', minusIconPath);
-        } else {
-            btnIcon.querySelector('img').setAttribute('src', plusIconPath);
-        }
-    });
+    currentIcon.setAttribute(
+      'src',
+      currentIconSrc === plusIconPath ? minusIconPath : plusIconPath
+    );
+  });
 });
 
-accordionHeaders.forEach( function(header) {
-    header.querySelector('button').addEventListener('click', function(){
-        const accordionContent = header.nextElementSibling;
-        if(accordionContent.style.display === 'block' || accordionContent.style.display === '') {
-            accordionContent.style.display = 'none'
-            // header.style.color = 'hsl(292, 42%, 14%)'
-            header.classList.remove('selected');
-            openAccordion = null
+const accordionHeaders = document.querySelectorAll('.accordion-header');
 
-        } else {
-            if (openAccordion) {
-                openAccordion.nextElementSibling.style.display = 'none'
-                openAccordion.classList.remove('selected')
-            }
-
-            accordionContent.style.display = 'block';
-            // header.style.color = 'hsl(293, 66%, 61%)'
-            header.classList.add('selected');
-            openAccordion = header
-        }
-    
-    })
-})
+accordionHeaders.forEach((header) => {
+  header.querySelector('button').addEventListener('click', () => {
+    const accordionContent = header.nextElementSibling;
+    accordionContent.classList.toggle('show');
+    header.classList.toggle('hovered')
+  });
+});
