@@ -22,16 +22,17 @@ accordionHeaders.forEach((header) => {
 
     accordionHeaders.forEach((otherHeader) => {
       if (otherHeader !== header) {
-        otherHeader.nextElementSibling.classList.remove('show');
+        const otherAccordionContent = otherHeader.nextElementSibling;
+        otherAccordionContent.classList.remove('show');
         otherHeader.classList.remove('hovered');
 
-        return
-      } 
+        // Reset the icon for each button in other headers
+        const otherIcon = otherHeader.querySelector('.btn-icon img');
+        otherIcon.setAttribute('src', plusIconPath);
+      }
     });
-    
-    accordionContent.classList.toggle('show');
-    header.classList.toggle('hovered')
 
-    
+    accordionContent.classList.toggle('show');
+    header.classList.toggle('hovered');
   });
 });
