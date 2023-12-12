@@ -51,7 +51,6 @@ hr {
 }
 
 .questions p {
-  /* display: none;*/
   margin-bottom: 0.5rem;
 }
 .flex {
@@ -66,14 +65,6 @@ button {
   border: 0;
 }
 
-.accordion-content {
-  display: none;
-  width: 80%;
-}
-
-.accordion-content.show {
-  display: block;
-}
 
 .accordion-header {
   padding: 0.5rem 0;
@@ -86,7 +77,61 @@ button {
   color: initial;
 }
 
+.accordion-content {
+  display: none;
+  transition: opacity 0.3s ease-in-out;
+}
 
+.accordion-content.show {
+  display: block;
+  opacity: 1;
+}
+
+.accordion-header:hover,
+.accordion-header:focus {
+  animation: expand 0.5s ease-in-out;
+}
+
+@keyframes expand {
+  from {
+    height: 0;
+  }
+  to {
+    height: auto;
+  }
+}
+.btn-icon img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.accordion-content.show ~ .btn-icon img {
+  transform: rotate(180deg);
+}
+
+.accordion-content.show ~ .btn-icon img:hover {
+  transform: rotate(0deg) scale(1.1);
+}
+
+.accordion-header:hover {
+  animation: border-highlight 0.3s ease-in-out;
+}
+
+@keyframes border-highlight {
+  from {
+    border-color: transparent;
+    border-width: 0;
+  }
+  to {
+    border-color: var(--Dark-purple);
+    border-width: 2px;
+  }
+}
+
+.accordion-header:hover,
+.accordion-header:focus {
+  transition: background-color 0.3s ease-in-out;
+  background-color: #f5f5f5;
+}
 
 .attribution {
   position: fixed;
